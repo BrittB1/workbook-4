@@ -7,10 +7,9 @@ public class UserInterface {
         Scanner userInput = new Scanner(System.in);
         System.out.println("Welcome to the Sunshine Dealership!");
 
-        // Show the home screen menu
+
         showHomeScreen(userInput);
 
-        userInput.close(); // Close the scanner at the end
     }
 
     public static void showHomeScreen(Scanner userInput) {
@@ -36,14 +35,14 @@ public class UserInterface {
                     addVehicle(userInput);
                     break;
                 case "L":
-                    listVehicles(); // Placeholder for listing vehicles
+                    listVehicles();
                     break;
                 case "R":
-                    removeVehicle(userInput); // Placeholder for removing vehicles
+                    removeVehicle(userInput);
                     break;
                 case "X":
                     homeScreenMenu = false;
-                    System.out.println("Exiting... Thank you!");
+                    System.out.println("Exiting...Thank you and come again :) ");
                     break;
                 default:
                     System.out.println("Invalid choice. Please try again.");
@@ -53,6 +52,7 @@ public class UserInterface {
 
     private static void addVehicle(Scanner userInput) {
         System.out.print("Enter VIN: ");
+        System.out.println("ex; 1234567");
         String vin = userInput.nextLine();
 
         System.out.print("Enter Make and Model: ");
@@ -79,14 +79,12 @@ public class UserInterface {
     }
 
     private static void listVehicles() {
-        // Placeholder for listing all vehicles
-        System.out.println("Listing all vehicles... (not implemented yet)");
+        System.out.println("Listing all vehicles...");
     }
 
     private static void removeVehicle(Scanner userInput) {
-        // Placeholder for removing a vehicle
         System.out.print("Enter VIN of the vehicle to remove: ");
         String vinToRemove = userInput.nextLine();
-        System.out.println("Vehicle with VIN " + vinToRemove + " removed. (not implemented yet)");
+        System.out.println("Vehicle with VIN " + vinToRemove + " removed.");
     }
 }

@@ -5,33 +5,36 @@ import java.util.Scanner;
 public class UserInterface {
     public static void main(String[] args) {
         Scanner userInput = new Scanner(System.in);
-        System.out.println("Welcome to the Sunshine Dealership!");
 
+Dealership d = new Dealership("PalmTree Motors", "234 Keylime Street","813-994-775");
+
+        System.out.println("Welcome to the PalmTree Motors! \uD83C\uDF34 ");
 
         showHomeScreen(userInput);
-
     }
-
     public static void showHomeScreen(Scanner userInput) {
         boolean homeScreenMenu = true;
 
         while (homeScreenMenu) {
             System.out.println("""
-                ==================================
-                          HOME MENU
-                ==================================
-                Please select an option to get started:
-                
-                F. Find a vehicle
-                L. List ALL vehicles
-                R. Remove a vehicle
-                X. Exit
-            """);
+                         ==================================
+                                     HOME MENU
+                         ==================================
+                         Please select an option to get started:
+                        \s
+                         F. FIND a vehicle
+                         L. LIST all vehicles
+                         A. ADD a Vehicle
+                         R. REMOVE a vehicle
+                         Q. Quit
+                    \s""");
             System.out.print("Enter your choice: ");
             String choice = userInput.nextLine().toUpperCase();
 
             switch (choice) {
                 case "F":
+                    VehicleFinder f = new VehicleFinder(userInput);
+                case "A":
                     addVehicle(userInput);
                     break;
                 case "L":
@@ -40,9 +43,9 @@ public class UserInterface {
                 case "R":
                     removeVehicle(userInput);
                     break;
-                case "X":
+                case "Q":
                     homeScreenMenu = false;
-                    System.out.println("Exiting...Thank you and come again :) ");
+                    System.out.println("Exiting...Thank you and come again! \uD83D\uDE04 ");
                     break;
                 default:
                     System.out.println("Invalid choice. Please try again.");
@@ -50,41 +53,12 @@ public class UserInterface {
         }
     }
 
-    private static void addVehicle(Scanner userInput) {
-        System.out.print("Enter VIN: ");
-        System.out.println("ex; 1234567");
-        String vin = userInput.nextLine();
-
-        System.out.print("Enter Make and Model: ");
-        String makeModel = userInput.nextLine();
-
-        System.out.print("Enter Type: ");
-        String type = userInput.nextLine();
-
-        System.out.print("Enter Year: ");
-        int year = userInput.nextInt();
-
-        System.out.print("Enter Color: ");
-        userInput.nextLine(); // Consume the newline
-        String color = userInput.nextLine();
-
-        System.out.print("Enter Odometer: ");
-        int odometer = userInput.nextInt();
-
-        System.out.print("Enter Price: ");
-        double price = userInput.nextDouble();
-
-        // Here you would typically create a Vehicle object and store it
-        System.out.println("Vehicle added: " + vin + ", " + makeModel + ", " + type + ", " + year + ", " + color + ", " + odometer + ", $" + price);
+    private static void removeVehicle(Scanner userInput) {
     }
 
     private static void listVehicles() {
-        System.out.println("Listing all vehicles...");
     }
 
-    private static void removeVehicle(Scanner userInput) {
-        System.out.print("Enter VIN of the vehicle to remove: ");
-        String vinToRemove = userInput.nextLine();
-        System.out.println("Vehicle with VIN " + vinToRemove + " removed.");
+    private static void addVehicle(Scanner userInput) {
     }
 }

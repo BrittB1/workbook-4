@@ -2,32 +2,33 @@ package com.pluralsight.dealership;
 
 import java.util.ArrayList;
 
-
 public class Dealership {
-    private String name;
-    private String address;
-    private String phone;
-    private ArrayList<Vehicles> vehicles;
+    private final String name;
+    private final String address;
+    private final String phone;
+    private final ArrayList<Dealership> dealership;
 
+    public String getName() {
+        return name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public ArrayList<Dealership> getVehicle() {
+        return dealership;
+    }
 
     public Dealership(String name, String address, String phone) {
         this.name = name;
         this.address = address;
-        vehicles = new ArrayList<>();
+        this.phone = phone;
+        dealership = new ArrayList<>();
     }
 
-    public void addVehicle(Vehicles vehicle) {
-        vehicles.add(vehicle);
-
     }
-
-    public void displayVehicles() {
-        if (vehicles.isEmpty()) {
-            System.out.println("No vehicles available.");
-        } else {
-            for (Vehicles vehicle : vehicles) {
-                System.out.println(vehicle);
-            }
-        }
-    }
-}

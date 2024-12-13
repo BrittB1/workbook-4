@@ -8,11 +8,12 @@ public class UserInterface {
 
 Dealership d = new Dealership("PalmTree Motors", "234 Keylime Street","813-994-775");
 
+
         System.out.println("Welcome to the PalmTree Motors! \uD83C\uDF34 ");
 
-        showHomeScreen(userInput);
+        showHomeScreen(userInput,d);
     }
-    public static void showHomeScreen(Scanner userInput) {
+    public static void showHomeScreen(Scanner userInput, Dealership d) {
         boolean homeScreenMenu = true;
 
         while (homeScreenMenu) {
@@ -33,15 +34,17 @@ Dealership d = new Dealership("PalmTree Motors", "234 Keylime Street","813-994-7
 
             switch (choice) {
                 case "F":
-                    VehicleFinder f = new VehicleFinder(userInput);
+                    VehicleFinder f = new VehicleFinder(userInput, d);
+                    break;
                 case "A":
-                    addVehicle(userInput);
+
+                    addVehicle(userInput, d);
                     break;
                 case "L":
-                    listVehicles();
+                    listVehicles(userInput, d);
                     break;
                 case "R":
-                    removeVehicle(userInput);
+                    removeVehicle(userInput, d);
                     break;
                 case "Q":
                     homeScreenMenu = false;
@@ -53,12 +56,12 @@ Dealership d = new Dealership("PalmTree Motors", "234 Keylime Street","813-994-7
         }
     }
 
-    private static void removeVehicle(Scanner userInput) {
+    private static void removeVehicle(Scanner userInput, Dealership d) {
     }
 
-    private static void listVehicles() {
+    private static void listVehicles(Scanner userInput, Dealership d) {
     }
 
-    private static void addVehicle(Scanner userInput) {
+    private static void addVehicle(Scanner userInput, Dealership d) {
     }
 }
